@@ -1,0 +1,15 @@
+<launch>
+    <node pkg="lifecycle_py" exec="moving_robot_server_lifecycle" name="moving_robot_server_a">
+        <param name="robot_name" value="cago"/>
+    </node>
+
+    <node pkg="lifecycle_py" exec="moving_robot_server_lifecycle" name="moving_robot_server_b">
+        <param name="robot_name" value="bago"/>
+    </node>
+    
+    <node pkg="lifecycle_py" exec="moving_robot_node_manager">
+        <param name="managed_node_names" value="['moving_robot_server_a','moving_robot_server_b']"/>
+    </node>
+
+
+</launch>
